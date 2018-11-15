@@ -1,0 +1,33 @@
+group = "com.loreans.demo"
+version = "0.0.1"
+buildscript {
+    ext.kotlin_version = '1.3.10'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+apply plugin: 'kotlin'
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.loreans.demo.GreeterApplicationKt'
+    }
+    from {
+        configurations.compile.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "com.fasterxml.jackson.core:jackson-databind:2.9.7"
+
+}

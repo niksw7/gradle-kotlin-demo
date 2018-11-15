@@ -1,0 +1,5 @@
+.idea/
+.gradle/
+gradle-kotlin-demo.iml
+build/
+gradle/

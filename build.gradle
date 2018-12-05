@@ -16,7 +16,7 @@ jar {
         attributes 'Main-Class': 'com.loreans.demo.GreeterApplicationKt'
     }
     from {
-        configurations.compile.collect {
+        configurations.default.collect {
             it.isDirectory() ? it : zipTree(it)
         }
     }
